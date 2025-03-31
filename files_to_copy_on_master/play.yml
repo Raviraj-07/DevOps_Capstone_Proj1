@@ -1,0 +1,13 @@
+---
+- name: Tasks on Master machine
+  hosts: localhost
+  become: true
+  tasks: 
+    - name: run master.sh script on master to install java and jenkins
+      script: /home/ubuntu/master.sh
+- name: Tasks on slave- test and prod nodes
+  hosts: all
+  become: true
+  tasks: 
+    - name: run slave.sh script on all the nodes to install java and docker
+      script: /home/ubuntu/slave.sh  
